@@ -53,7 +53,7 @@ public class Main {
         //both arrts and arr are pointing to the same obj
 
         //if done by new ArrayList and the synchronisedList syntax it would have copied
-        //  the elements and then thrown away the wrapper, so it would be of no use
+        //the elements and then thrown away the wrapper, so it would be of no use
         //it is better for writing as we don't have to copy the elements
 
         //2.

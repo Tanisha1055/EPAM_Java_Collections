@@ -28,6 +28,6 @@ public class Main {
 
         //real-life usage: used to store unique phone numbers in real life
 
-        //it is synchronised meaning the entire set will be locked
+        //it is not synchronised
     }
 }

@@ -36,7 +36,7 @@ public class Main {
         // with the equals method for matching element if found doesn't insert it as key should be unique 
         //else inserts,it . Collision is there as various obj may map to dame hashcode index,
         //but are internally different. Again LL is not better for large scale as in worst case scenario
-        //all the elements may map to same index of the array so teh searching time is O(N)
+        //all the elements may map to same index of the array so the searching time is O(N)
         //to reduce that we  can switch to binary-tree(Red-Black tree) in case of large no. of elements
         //so the searching time is O(log N) , in case of small number of elements we can switch back to LL
         //Now for retrival(get), we again find hashcode of the obj, then search in that position with equals
