@@ -1,0 +1,62 @@
+2️⃣ Collections.reverseOrder() → static factory method
+
+📌 When to use it
+
+When you don’t already have a Comparator
+And you want a ready-made reverse comparator
+
+Example
+Collections.sort(list, Collections.reverseOrder());
+
+
+With custom comparator:
+Collections.sort(list, Collections.reverseOrder(String.CASE_INSENSITIVE_ORDER));
+
+Key points
+
+Belongs to Collections
+Returns a new Comparator
+
+Old-school, pre–Java-8 style but still valid
+
+1️⃣ reversed() → instance method on a Comparator
+
+📌 When to use it
+
+When you already have a Comparator
+And you want the opposite order of that same comparator
+
+Example:
+Comparator<Integer> cmp = Comparator.naturalOrder();
+Comparator<Integer> revCmp = cmp.reversed();
+
+
+or inline (very common):
+list.sort(Comparator.comparing(Employee::getSalary).reversed());
+
+Key points
+
+Works on any Comparator
+Keeps the same comparison logic, just flips it
+Fluent / chainable (Java 8 style)
+
+| Feature             | `reversed()`        | `Collections.reverseOrder()` |
+| ------------------- | ------------------- | ---------------------------- |
+| Type                | Instance method     | Static method                |
+| Works on            | Existing Comparator | Creates a Comparator         |
+| Java version        | Java 8+             | Java 1.2+                    |
+| Chaining            | ✅ Yes              | ❌ No                        |
+| Interview-preferred | ✅ Yes              | ⚠️ Acceptable                |
+
+🧠 Rule of thumb (easy to remember)
+
+👉 Already have a Comparator? → use .reversed()
+👉 Need a Comparator from scratch? → use reverseOrder()
+
+💡 Interview tip (say this and look senior)
+
+“reversed() is preferred in modern Java because it preserves comparator intent and
+allows fluent composition.”
+
+So .reversed() , can be used for Integer comparing without Collections . For Collections
+you need reversedOrder().
