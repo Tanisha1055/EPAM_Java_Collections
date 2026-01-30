@@ -1,0 +1,24 @@
+
+Why are wrapper classes immutable in Java?
+
+Wrapper classes (like Integer, Double, Boolean, etc.) are immutable for several
+important reasons:
+
+Consistency with primitives: Wrapper classes represent primitive values (int, double,
+etc.), which themselves do not change. Immutability ensures the wrapper’s value remains
+consistent with the primitive it wraps.
+
+Thread-safety:Immutable objects can be safely shared between threads without
+synchronization, preventing concurrency issues.
+
+Caching and performance:Java caches frequently used wrapper objects (like Integer
+values from -128 to 127). Immutability ensures these cached objects are safe to reuse
+without risk of their value changing.
+
+Reliable behavior:Immutability prevents unexpected changes, making wrapper objects
+predictable and reliable when used as keys in collections or in other contexts.
+
+In short:
+Wrapper classes are immutable to ensure thread-safety, enable safe caching, maintain
+consistency with primitives, and provide reliable, predictable behavior in Java programs.
+

@@ -1,0 +1,19 @@
+Is HashMap made up of Hashtable?
+
+No, HashMap is NOT made up of Hashtable.
+
+HashMap and Hashtable are two separate implementations of the Map interface.
+HashMap does not use Hashtable internally.
+Both use a similar underlying data structure (an array of buckets with linked lists or
+trees for collision handling), but they are implemented independently.
+
+Why is HashMap not thread-safe?
+
+HashMap was designed for performance and non-synchronized use cases.
+It does not synchronize its methods, so multiple threads can modify it at the same time,
+leading to data corruption or unpredictable behavior.
+
+If you need a thread-safe map, you should use:
+
+Collections.synchronizedMap(new HashMap<>())
+ConcurrentHashMap (preferred for most concurrent use cases)

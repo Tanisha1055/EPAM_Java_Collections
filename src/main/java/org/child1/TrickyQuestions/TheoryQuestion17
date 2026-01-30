@@ -1,0 +1,7 @@
+Feature	                      Hashtable	                   ConcurrentHashMap
+
+Thread Safety	              Yes (whole table locked)	   Yes (bucket/segment locked)
+Performance	                  Slower (high contention)	   Faster (low contention)
+Null Keys/Values	          Not allowed	               Not allowed
+Introduced	                  Legacy (pre-Java 2)	       Modern (Java 5+)
+Usage	                      Rarely used	                Preferred for concurrency

@@ -1,0 +1,29 @@
+1.Why shared cache in users server is an example of concurrent hashmap?
+
+Scenario: Shared Cache in a User Server
+Imagine a web server or application server that handles requests from multiple users at
+the same time (multi-threaded environment).
+The server maintains a cache (temporary storage) of user data, session information, or
+frequently accessed resources.
+All threads (handling different user requests) need to read from and write to this cache
+concurrently.
+
+Why use ConcurrentHashMap?
+Thread Safety:
+Multiple threads can safely access and modify the cache at the same time without corrupting
+data.
+
+High Performance:
+Unlike Hashtable (which locks the entire map), ConcurrentHashMap uses fine-grained
+locking (locks only parts of the map), allowing many threads to operate in parallel
+with minimal blocking.
+
+All these operations can happen simultaneously from different threads without causing
+data corruption or performance bottlenecks.
+
+No Data Corruption:
+Prevents issues like lost updates, inconsistent reads, or exceptions that can occur if a
+non-thread-safe map (like HashMap) is used.
+
+No Nulls:
+Disallows null keys and values, which avoids ambiguity in concurrent operations.
