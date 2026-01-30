@@ -42,4 +42,8 @@ public class Main {
 //“HashMap works on hashCode first, then equals.”
 
 //By default this new keyword will make a new Object with different hashCode, so the
-//object will be treated differently. By the HashMap , as HashMap sees the hashCode first
+//object will be treated differently. By the HashMap , as HashMap sees the hashCode
+//first
+
+//On the other hand if we would have added the same obj (reused the same obj) , it would
+//have gotten overidden
