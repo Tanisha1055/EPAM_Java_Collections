@@ -1,0 +1,26 @@
+Difference between synchronized and Lock?
+
+synchronized	                 Lock
+
+Implicit	                     Explicit
+No try	                         tryLock
+Auto release	                 Manual release
+Less flexible	                 More flexible
+
+
+Example:
+
+Lock lock = new ReentrantLock();
+lock.lock();
+
+try {
+   // critical section
+} finally {
+   lock.unlock();
+}
+
+Scenario:
+
+You want timeout while waiting for lock. What to use?
+
+👉 Lock (tryLock)

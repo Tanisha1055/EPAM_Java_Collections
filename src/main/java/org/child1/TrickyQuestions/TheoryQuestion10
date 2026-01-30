@@ -1,0 +1,7 @@
+Does volatile ensure atomicity?
+
+❌ No
+
+👉 Interview line:
+
+“volatile gives visibility, not atomicity.”

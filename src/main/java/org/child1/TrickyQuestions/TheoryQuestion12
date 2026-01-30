@@ -1,0 +1,11 @@
+You use HashMap in multi-threaded environment. Suddenly data inconsistency appears. Why?
+
+
+Answer:
+
+👉 HashMap is not thread-safe
+
+
+Fix:
+Collections.synchronizedMap
+ConcurrentHashMap

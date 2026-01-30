@@ -1,0 +1,17 @@
+Interview Question:
+
+What is volatile?
+
+Strong Answer:
+
+“Ensures visibility of variable changes across threads.”
+
+Scenario:
+volatile boolean flag = true;
+
+
+Thread A sets flag = false
+Thread B reads flag
+
+👉 Without volatile → may not see update
+👉 With volatile → guaranteed visibility

@@ -1,0 +1,3 @@
+Why TreeMap is slower than HashMap?
+
+👉 Because it maintains sorted order using tree structure

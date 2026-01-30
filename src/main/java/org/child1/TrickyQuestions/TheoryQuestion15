@@ -1,0 +1,13 @@
+1. equals() without hashCode()
+
+class A {
+    public boolean equals(Object o) {
+        return true;
+    }
+}
+
+Answer: HashSet allows duplicates.
+
+Why:
+
+Hash-based collections rely on both equals() and hashCode().

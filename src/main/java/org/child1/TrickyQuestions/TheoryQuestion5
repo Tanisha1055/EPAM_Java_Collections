@@ -1,0 +1,8 @@
+Difference between HashMap and TreeMap?
+
+Feature	                   HashMap	                      TreeMap
+
+Order	                   No order	                      Sorted order
+Structure	               Hash table	                  Red-Black tree
+Null keys	               One allowed	                  Not allowed
+Performance	               O(1)	                          O(log n)

@@ -1,0 +1,5 @@
+You need sorted keys → TreeMap
+
+You need fast lookup → HashMap
+
+You need range queries → TreeMap

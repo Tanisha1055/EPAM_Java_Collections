@@ -1,0 +1,17 @@
+synchronized on method vs block?
+
+Answer:
+
+Method locks entire object
+Block locks only specific part
+
+👉 Interview line:
+
+“Block gives finer control.”
+
+Example:
+
+synchronized void m1() {}        // method
+synchronized(obj) { }            // block
+
+

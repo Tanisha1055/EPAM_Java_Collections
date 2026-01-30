@@ -1,0 +1,11 @@
+Difference between ArrayList and LinkedList?
+
+Strong Answer:
+
+Feature	                      ArrayList	               LinkedList
+
+Data structure	              Dynamic array	           Doubly linked list
+Access	                      Fast (O(1))	           Slow (O(n))
+Insertion/Deletion (middle)	  Slow	                   Fast
+Memory	Less	              More                     (node pointers)
+Cache locality	              Good	                   Poor

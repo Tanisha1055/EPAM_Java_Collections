@@ -1,0 +1,2 @@
+“TreeMap does not allow null keys because it uses comparison, and comparing null
+ throws NullPointerException.”

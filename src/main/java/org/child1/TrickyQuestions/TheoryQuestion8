@@ -1,0 +1,6 @@
+What is synchronized?
+
+Expected:
+
+“A keyword to achieve thread safety by allowing only one thread to access a resource at a
+time.”

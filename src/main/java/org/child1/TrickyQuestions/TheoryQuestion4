@@ -1,0 +1,12 @@
+Why is LinkedList rarely used in real projects?
+
+Answer:
+
+High memory overhead
+
+Poor cache performance
+
+ArrayList is usually faster even for insertions
+
+This is a mature answer.
+
