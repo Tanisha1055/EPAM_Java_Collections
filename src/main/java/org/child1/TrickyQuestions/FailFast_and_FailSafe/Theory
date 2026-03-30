@@ -1,0 +1,153 @@
+Q.What is FailFast and FailSafe. Difference between the both , in which scenario are they used
+and what is the consequence of them.
+
+🔷 1️⃣ What is Fail-Fast?
+👉
+Fail-Fast means: if a collection is modified while iterating, it immediately throws an exception.
+
+🔹 Example
+
+import java.util.*;
+
+List<Integer> list = new ArrayList<>();
+list.add(1);
+list.add(2);
+
+for (Integer i : list) {
+    list.add(3); // ❌ modifying while iterating
+}
+
+❗ Output
+
+ConcurrentModificationException
+
+🔹 Why does this happen?
+
+👉 Internally:
+
+(i)Collection keeps a modCount
+(ii)Iterator checks it
+
+👉 If modified:
+
+❌ Throw exception immediately
+
+🔹 Where used?
+
+1.ArrayList
+2.HashMap
+3.HashSet
+
+👉 Most collections in java.util
+
+🔷 2️⃣ What is Fail-Safe?
+👉
+Fail-Safe means: you can modify the collection while iterating without exception.
+
+🔹 Example
+
+import java.util.concurrent.*;
+
+CopyOnWriteArrayList<Integer> list = new CopyOnWriteArrayList<>();
+list.add(1);
+list.add(2);
+
+for (Integer i : list) {
+    list.add(3); // ✅ allowed
+}
+
+✔ Output
+
+No exception
+
+🔹 Why?
+
+👉 It works on:
+
+1.Copy of collection
+2.Not original
+
+🔹 Where used?
+
+1.CopyOnWriteArrayList
+2.ConcurrentHashMap
+
+👉 Package:
+
+java.util.concurrent
+
+🔷 3️⃣ Key Difference
+
+Feature	                                   Fail-Fast	                         Fail-Safe
+
+Modification during iteration	           ❌ Not allowed	                     ✅ Allowed
+Exception	                               Yes	                                  No
+Works on	                               Original collection	                  Copy
+Performance	                               Faster	                              Slower
+Thread-safe	                               ❌ No	                              ✅ Yes
+
+🔷 4️⃣ Consequences
+
+❌ Fail-Fast
+(i)   Throws ConcurrentModificationException
+(ii)  Stops execution
+(iii) Helps detect bugs early
+
+⚠️ Fail-Safe
+(i)  No exception
+But:
+(ii)  May not reflect latest data
+(iii) Works on snapshot
+
+🔷 5️⃣ Benefits of each
+✅ Fail-Fast Advantages
+
+✔ Detects bugs immediately
+✔ Better performance
+✔ No extra memory
+
+❗ Disadvantages
+
+❌ Not thread-safe
+❌ Cannot modify during iteration
+
+✅ Fail-Safe Advantages
+
+✔ Safe in multithreading
+✔ No exception
+✔ Allows modification
+
+❗ Disadvantages
+
+❌ Extra memory (copy)
+❌ Slightly slower
+❌ May work on outdated data
+
+🔷 6️⃣ Real-life analogy
+
+Fail-Fast:
+
+You are reading a book
+Someone changes pages → you stop immediately ❌
+
+Fail-Safe:
+
+You are reading a photocopy
+Original changes → no effect ✅
+
+🔷 🔥 Important Interview Point
+
+👉
+Fail-Fast is not truly guaranteed — it’s “best effort”
+
+🔷 🔥 Final Interview Answer
+👉
+Fail-Fast collections throw a ConcurrentModificationException if modified during iteration,
+helping detect bugs early. Fail-Safe collections work on a copy of the data and allow
+modifications without exceptions, making them suitable for concurrent environments but with
+additional memory overhead.
+
+🔷 One-line memory trick
+👉
+Fail-Fast → fail immediately
+Fail-Safe → work on copy
