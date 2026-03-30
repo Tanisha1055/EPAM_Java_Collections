@@ -1,0 +1,100 @@
+Q. After what number of nodes in the internal working of the HashMap does the linkedlist
+converts to tree ?And what is the term called?
+
+Ans: 🔷 1️⃣ When does LinkedList become Tree?
+
+     👉 In a HashMap, when too many elements go into the same bucket, it converts:
+
+     LinkedList → Red-Black Tree
+
+     ✅ Threshold value
+     👉
+     8 (TREEIFY_THRESHOLD)
+
+     Meaning:
+
+     If number of nodes in a bucket ≥ 8
+
+     👉 Then:
+     ✔ LinkedList → Tree (Red-Black Tree)
+
+
+     🔷 2️⃣ When does it convert back to LinkedList?
+     👉
+     6 (UNTREEIFY_THRESHOLD)
+
+     If nodes drop below 6:
+
+     ✔ Tree → LinkedList
+
+
+     🔷 3️⃣ Important Condition (VERY IMPORTANT 🔥)
+
+     👉 Tree conversion happens ONLY IF:
+
+     HashMap size ≥ 64
+
+     👉 Constant:
+     MIN_TREEIFY_CAPACITY = 64
+
+     ❗ If size < 64
+
+     👉 Instead of tree:
+     ✔ HashMap resizes (rehashing happens)
+
+     🔷 4️⃣ What is the “index” called?
+
+     👉 The term used is:
+
+     ✅ Bucket Index
+
+     How index is calculated:
+     index = (n - 1) & hash
+
+     Where:
+     n = size of array
+     hash = hashCode of key
+
+     👉 This index tells:
+
+     “Which bucket (position) this key goes into”
+
+     🔷 5️⃣ Full Internal Flow
+     Key → hashCode()
+     Hash → index (bucket index)
+
+     If collision:
+     Add to LinkedList
+
+     If nodes ≥ 8:
+     Convert to Tree (if capacity ≥ 64)
+
+     🔷 6️⃣ Why Tree is used?
+
+     👉 LinkedList:
+     Search = O(n)
+
+     👉 Tree:
+     Search = O(log n)
+
+     🔷 7️⃣ Summary Table
+
+     Concept	                                                      Value
+
+     Treeify threshold	                                              8
+     Untreeify threshold	                                          6
+     Min capacity for tree	                                          64
+
+     Index term	                                                     Bucket Index
+
+     🔷 🔥 Interview Answer
+     👉
+     In HashMap (Java 8+), when the number of elements in a bucket exceeds 8, the linked list is
+     converted into a balanced tree (Red-Black Tree), provided the overall capacity is at least 64.
+     The index used to store elements is called the bucket index, which is calculated using the hash
+     of the key.
+
+     🔷 One-line memory trick
+
+     👉
+     8 → Tree, 6 → Back, 64 → Condition
